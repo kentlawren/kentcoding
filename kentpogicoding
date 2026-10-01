@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Attendance Monitor - Login</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #eef5ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    width: 950px;
+    min-height: 580px;
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 15px 45px rgba(0, 70, 150, 0.15);
+}
+
+/* LEFT SIDE */
+.left-side {
+    width: 45%;
+    background: linear-gradient(135deg, #0866d6, #00449c);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.logo {
+    width: 110px;
+    height: 110px;
+    border-radius: 25px;
+    background: white;
+    color: #0866d6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.left-side h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.left-side p {
+    font-size: 14px;
+    line-height: 1.7;
+    opacity: .9;
+}
+
+/* RIGHT SIDE */
+.right-side {
+    width: 55%;
+    padding: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right-side h2 {
+    color: #12345a;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* INPUT */
+.input-box {
+    position: relative;
+    margin-bottom: 17px;
+}
+
+.input-box i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7b8ca5;
+}
+
+.input-box input {
+    width: 100%;
+    height: 52px;
+    border: 1px solid #d8e0eb;
+    border-radius: 12px;
+    padding: 0 45px;
+    outline: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.input-box input:focus {
+    border-color: #0866d6;
+    box-shadow: 0 0 0 3px rgba(8,102,214,.1);
+}
+
+.password-eye {
+    left: auto !important;
+    right: 16px;
+    cursor: pointer;
+}
+
+/* OPTIONS */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.options a {
+    color: #0866d6;
+    text-decoration: none;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+    width: 100%;
+    height: 52px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #0866d6, #00449c);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(8,102,214,.25);
+}
+
+/* DIVIDER */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 22px 0;
+    color: #999;
+    font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+}
+
+/* GOOGLE BUTTON */
+.google-btn {
+    width: 100%;
+    height: 52px;
+    border: 1px solid #d8e0eb;
+    background: white;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    transition: .3s;
+}
+
+.google-btn:hover {
+    background: #f7f9fc;
+    border-color: #aaa;
+}
+
+.google-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+/* SIGN UP */
+.signup {
+    text-align: center;
+    margin-top: 25px;
+    color: #777;
+    font-size: 13px;
+}
+
+.signup a {
+    color: #0866d6;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* MESSAGE */
+#message {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 15px;
+    min-height: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 800px) {
+
+    .login-container {
+        width: 92%;
+        flex-direction: column;
+    }
+
+    .left-side {
+        width: 100%;
+        min-height: 260px;
+        padding: 30px;
+    }
+
+    .logo {
+        width: 80px;
+        height: 80px;
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+
+    .left-side h1 {
+        font-size: 24px;
+    }
+
+    .right-side {
+        width: 100%;
+        padding: 35px 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <!-- LEFT -->
+    <div class="left-side">
+
+        <div class="logo">
+            <i class="fa-solid fa-clipboard-check"></i>
+        </div>
+
+        <h1>Attendance Monitor</h1>
+
+        <p>
+            Manage student attendance easily,
+            accurately, and efficiently.
+        </p>
+
+    </div>
+
+
+    <!-- RIGHT -->
+    <div class="right-side">
+
+        <h2>Welcome Back!</h2>
+
+        <p class="subtitle">
+            Sign in to your Attendance Monitor account
+        </p>
+
+
+        <!-- USERNAME -->
+        <div class="input-box">
+            <i class="fa-solid fa-user"></i>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Username or Email"
+            >
+        </div>
+
+
+        <!-- PASSWORD -->
+        <div class="input-box">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Password"
+            >
+
+            <i
+                class="fa-solid fa-eye password-eye"
+                id="eye"
+                onclick="togglePassword()">
+            </i>
+
+        </div>
+
+
+        <!-- OPTIONS -->
+        <div class="options">
+
+            <label class="remember">
+                <input type="checkbox">
+                Remember me
+            </label>
+
+            <a href="#" onclick="forgotPassword()">
+                Forgot Password?
+            </a>
+
+        </div>
+
+
+        <!-- LOGIN -->
+        <button class="login-btn" onclick="login()">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            &nbsp; Sign In
+        </button>
+
+
+        <div class="divider">
+            OR
+        </div>
+
+
+        <!-- GOOGLE -->
+        <button class="google-btn" onclick="googleSignIn()">
+
+            <img
+            src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+            alt="Google">
+
+            Continue with Google
+
+        </button>
+
+
+        <!-- MESSAGE -->
+        <div id="message"></div>
+
+
+        <!-- SIGN UP -->
+        <div class="signup">
+
+            Don't have an account?
+
+            <a href="#" onclick="signUp()">
+                Sign Up
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* SHOW / HIDE PASSWORD */
+
+function togglePassword() {
+
+    const password = document.getElementById("password");
+    const eye = document.getElementById("eye");
+
+    if (password.type === "password") {
+
+        password.type = "text";
+
+        eye.classList.remove("fa-eye");
+        eye.classList.add("fa-eye-slash");
+
+    } else {
+
+        password.type = "password";
+
+        eye.classList.remove("fa-eye-slash");
+        eye.classList.add("fa-eye");
+
+    }
+}
+
+
+/* USERNAME / PASSWORD LOGIN */
+
+function login() {
+
+    const username =
+        document.getElementById("username").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+    const message =
+        document.getElementById("message");
+
+
+    if (username === "" || password === "") {
+
+        message.style.color = "#d93025";
+
+        message.innerHTML =
+            "Please enter your username and password.";
+
+        return;
+    }
+
+
+    /*
+       DEMO ACCOUNT
+
+       Username: admin
+       Password: 12345
+    */
+
+    if (
+        username === "admin" &&
+        password === "12345"
+    ) {
+
+        message.style.color = "#168a4a";
+
+        message.innerHTML =
+            "Login successful!";
+
+        setTimeout(function() {
+
+            window.location.href = "index.html";
+
+        }, 800);
+
+    } else {
+
+        message.style.color = "#d93025";
+
+        message.innerHTML =
+            "Invalid username or password.";
+
+    }
+}
+
+
+/* GOOGLE SIGN IN */
+
+function googleSignIn() {
+
+    const message =
+        document.getElementById("message");
+
+    message.style.color = "#0866d6";
+
+    message.innerHTML =
+        "Google Sign-In needs to be connected to Firebase or Google OAuth.";
+
+}
+
+
+/* SIGN UP */
+
+function signUp() {
+
+    window.location.href = "signup.html";
+
+}
+
+
+/* FORGOT PASSWORD */
+
+function forgotPassword() {
+
+    const message =
+        document.getElementById("message");
+
+    message.style.color = "#0866d6";
+
+    message.innerHTML =
+        "Password recovery will be available soon.";
+
+}
